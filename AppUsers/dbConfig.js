@@ -2,7 +2,9 @@
 
 const mongoose = require('mongoose');
 
-const urlDb = 'mongodb://127.0.0.1/ninjatalent';
+// const urlDb = 'mongodb://127.0.0.1/ninjatalent'; 
+const urlDb = 'mongodb+srv://ninja:3Io9xsjOacPVhtqO@ninjatalent.hwzb1.mongodb.net/ninjatalent?retryWrites=true'
+
 
 mongoose.connect(urlDb, {
     useNewUrlParser: true,

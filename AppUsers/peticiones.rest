@@ -7,35 +7,35 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "id": 3,
-  "firstname": "Alejandro",
-  "lastname": "Martin",
-  "email": "alejm@gmail.com",
-  "birthDate": "1991-10-12",
+  "id": 1,
+  "firstname": "rthtrh",
+  "lastname": "Ihrthrtbeas",
+  "email": "oshrthrtcar@gmail.com",
+  "birthDate": "1987-11-20",
   "address": {
-    "id": 3,
-    "street": "Plaza de España 5",
-    "city": "Burgos",
-    "country": "ES",
-    "postalcode": "09002"
+    "id": 1,
+    "street": "Avenrfnrnrnida 2",
+    "city": "Gertrttafe",
+    "country": "UK",
+    "postalcode": "28905"
   }
 }
 
 ### GET un usuario por id
-GET http://localhost:3000/users/2/
+GET http://localhost:3000/users/1
 
 ### PUT Modificar un usuario
-PUT http://localhost:3000/users/3
+PUT http://localhost:3000/users/4
 Content-Type: application/json
 
 {
-  "id": 3,
+  "id": 4,
   "firstname": "JAvier",
   "lastname": "Gonzalez",
   "email": "JAG@gmail.com",
   "birthDate": "1991-10-12",
   "address": {
-    "id": 3,
+    "id": 4,
     "street": "Plaza de España 5",
     "city": "Burgos",
     "country": "ES",
@@ -44,4 +44,4 @@ Content-Type: application/json
 }
 
 ### DELETE Borrar un usuario
-DELETE http://localhost:3000/users/3
+DELETE http://localhost:3000/users/4

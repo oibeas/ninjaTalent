@@ -1,0 +1,47 @@
+
+### GET todos los usuarios
+GET http://localhost:3000/users
+
+### POST Crear un usuario
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "id": 3,
+  "firstname": "Alejandro",
+  "lastname": "Martin",
+  "email": "alejm@gmail.com",
+  "birthDate": "1991-10-12",
+  "address": {
+    "id": 3,
+    "street": "Plaza de España 5",
+    "city": "Burgos",
+    "country": "ES",
+    "postalcode": "09002"
+  }
+}
+
+### GET un usuario por id
+GET http://localhost:3000/users/2/
+
+### PUT Modificar un usuario
+PUT http://localhost:3000/users/3
+Content-Type: application/json
+
+{
+  "id": 3,
+  "firstname": "JAvier",
+  "lastname": "Gonzalez",
+  "email": "JAG@gmail.com",
+  "birthDate": "1991-10-12",
+  "address": {
+    "id": 3,
+    "street": "Plaza de España 5",
+    "city": "Burgos",
+    "country": "ES",
+    "postalcode": "09001"
+  }
+}
+
+### DELETE Borrar un usuario
+DELETE http://localhost:3000/users/3

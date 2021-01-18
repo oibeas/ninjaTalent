@@ -1,0 +1,92 @@
+<h2 class="mt-5 mb-5">Datos nuevo Usuario</h2>
+
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()" novalidate>
+    <!-- Firstname: Requerido y menor de 20 caracteres -->
+    <div class="form-group">
+        <label>Firstname</label>
+        <input type="text" class="form-control" formControlName="firstname">
+        <p class="error" *ngIf="formulario.controls.firstname.errors && formulario.controls.firstname.touched">The
+            firstname field is required and must be less than 20 characters</p>
+    </div>
+    <!-- Lastname: Requerido y menor de 50 caracteres-->
+    <div class="form-group">
+        <label>Lastname</label>
+        <input type="text" class="form-control" formControlName="lastname">
+        <p class="error" *ngIf="formulario.controls.lastname.errors && formulario.controls.lastname.touched">The
+            firstname field is required and must be less than 50 characters</p>
+    </div>
+    <!-- Email: Requerido y con formato email -->
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" formControlName="email">
+        <p class="error" *ngIf="formulario.controls.email.errors?.required && formulario.controls.email.touched">The
+            email field is required</p>
+        <p class="error" *ngIf="formulario.controls.email.errors?.pattern&& formulario.controls.email.touched">The email
+            is not in a valid format</p>
+    </div>
+    <!-- Birthdate: Requerido -->
+    <div class="form-group">
+        <label>Birthdate</label>
+        <input type="date" class="form-control" formControlName="birthDate">
+        <p class="error"
+            *ngIf="formulario.controls.birthDate.errors?.required && formulario.controls.birthDate.touched">
+            The birthdate field is required</p>
+    </div>
+    <label>Address</label>
+    <!-- Street: Requerido y menor de 50 caracteres-->
+    <div class="form-group">
+        <label>Street</label>
+        <input type="text" class="form-control" formControlName="street">
+        <p class="error" *ngIf="formulario.controls.street.errors?.required && formulario.controls.street.touched">
+            The street field is required</p>
+    </div>
+    <!-- City: Requerido y menor de 20 caracteres -->
+    <div class="form-group">
+        <label>city</label>
+        <input type="text" class="form-control" formControlName="city">
+        <p class="error" *ngIf="formulario.controls.city.errors?.required && formulario.controls.city.touched">
+            The city field is required</p>
+    </div>
+    <!-- COUNTRY: Requerido -->
+    <label class="form-check-inline">Country: </label>
+    <div class="form-group form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="country" id="exampleRadios1" value="ES" checked>
+        <label class="form-check-label" for="exampleRadios1">
+            ES
+        </label>
+    </div>
+    <div class="form-group form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="country" id="exampleRadios2" value="UK">
+        <label class="form-check-label" for="exampleRadios2">
+            UK
+        </label>
+    </div>
+    <div class="form-group form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="country" id="exampleRadios3" value="DE">
+        <label class="form-check-label" for="exampleRadios3">
+            DE
+        </label>
+    </div>
+    <div class="form-group form-check-inline">
+        <input class="form-check-input" type="radio" formControlName="country" id="exampleRadios4" value="US">
+        <label class="form-check-label" for="exampleRadios4">
+            US
+        </label>
+    </div>
+    <!-- Postalcode: Requerido, numerico y menor de 5 caracteres -->
+    <div class="form-group">
+        <label>Postalcode</label>
+        <input type="text" class="form-control" formControlName="postalcode">
+        <p class="error"
+            *ngIf="formulario.controls.postalcode.errors?.required && formulario.controls.postalcode.touched">The
+            postalcode field is required</p>
+        <p class="error"
+            *ngIf="formulario.controls.postalcode.errors?.pattern&& formulario.controls.postalcode.touched">The
+            postalcode field must be from 1 to 5 numbers</p>
+    </div>
+    <input type="submit" value="Enviar" [disabled]="!formulario.valid" class="btn btn-info btn-block">
+
+
+
+
+</form>

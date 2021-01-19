@@ -2,7 +2,8 @@
 
 <h2 class="mt-5 mb-5">Editar Usuario</h2>
 
-<form [formGroup]="formulario" (ngSubmit)="onSubmit()" novalidate>
+<!-- Creamos el formulario con los datos a modificar, con *ngIf esperamos que carguen -->
+<form [formGroup]="formulario" *ngIf="this.formulario" (ngSubmit)="onSubmit()" novalidate>
     <!-- Firstname: Requerido y menor de 20 caracteres -->
     <div class="form-group">
         <label>First name</label>

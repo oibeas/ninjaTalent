@@ -1,19 +1,22 @@
 ninjaTalent
 ============
 
-Restful frontend on Angular
+### Restful frontend on Angular
 
 #### Firebase domain
 
 > https://appninja-668df.web.app
 
 
+#### Aplicacion desarrollada para generarlos servicios (RESTful) y conectar con el backend.
+#### Interfaz desarrollada en Angular que permite, listar, crear, editar y eliminar usuarios. Dispone de una pagina principal donde se listan los usuarios y un formulario para crear nuevos usuarios o editarlos.
 
 
 
 
 
-RESTful backend based on Node.js and MongoDB
+
+### RESTful backend based on Node.js and MongoDB
 
 
 #### Heroku domain
@@ -213,3 +216,12 @@ Run next command from CLI:
 ```bash
 npm run test
 ```
+
+
+## Autores ✒️
+
+_Prueba técnica ninjaTalent_
+
+* **Óscar Ibeas** - *Autor* - [oibeas](https://github.com/oibeas)
+* **LINKEDIN** -[oibeas](https://www.linkedin.com/in/oscaribeas/)
+

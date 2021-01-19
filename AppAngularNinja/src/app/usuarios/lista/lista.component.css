@@ -1,0 +1,16 @@
+.escritorio {
+    display: block;
+}
+
+.movil {
+    display: none;
+}
+
+@media (max-width: 401px) {
+    .escritorio {
+        display: none;
+    }
+    .movil {
+        display: block;
+    }
+}

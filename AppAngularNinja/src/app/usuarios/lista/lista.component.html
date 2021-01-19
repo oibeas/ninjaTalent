@@ -1,35 +1,73 @@
 <app-navbar></app-navbar>
 
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Firstname</th>
-            <th scope="col">Lastname</th>
-            <th scope="col">Email</th>
-            <th scope="col">Birthdate</th>
-            <th scope="col">Adress</th>
-            <th scope="col">Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let usuario of usuarios;let indice=index;">
-            <th>{{usuario.id}}</th>
-            <td>{{usuario.firstname}}</td>
-            <td>{{usuario.lastname}}</td>
-            <td>{{usuario.email}}</td>
-            <td>{{usuario.birthDate|date }}</td>
-            <td>{{usuario.address.street}}, {{usuario.address.city}},
-                {{usuario.address.postalcode}}, {{usuario.address.country}}
-            <td>
-                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                    <button type="button" class="btn btn-info btn-sm"
-                        [routerLink]="['/usuarios/edit/'+usuario.id]">Edit</button>
-                    <button type="button" class="btn btn-danger btn-sm"
-                        (click)="borrarUsuario(usuario.id)">Delete</button>
-                </div>
-            </td>
-        </tr>
 
-    </tbody>
-</table>
+<!-- Version escritorio -->
+<div class="container escritorio table-responsive">
+    <table class=" table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Birthdate</th>
+                <th scope="col">Adress</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of usuarios;let indice=index;">
+                <th>{{usuario.id}}</th>
+                <td><b>{{usuario.firstname}},&nbsp;{{usuario.lastname}}</b></td>
+                <td><i>{{usuario.email}}</i></td>
+                <td><small>{{usuario.birthDate|date }}</small></td>
+                <td>{{usuario.address.street}}, {{usuario.address.city}},
+                    {{usuario.address.postalcode}}, {{usuario.address.country}}
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <button type="button" class="btn btn-info btn-sm"
+                            [routerLink]="['/usuarios/edit/'+usuario.id]">Edit</button>
+                        <button type="button" class="btn btn-danger btn-sm"
+                            (click)="borrarUsuario(usuario.id)">Delete</button>
+                    </div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<!-- Version movil -->
+<div class="movil table-responsive">
+    <table class=" table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Personal Info</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of usuarios;let indice=index;">
+                <th>{{usuario.id}}</th>
+                <td><b>{{usuario.firstname}},&nbsp;{{usuario.lastname}}</b>
+                    <br>
+                    <i>{{usuario.email}}</i>
+                    <br>
+                    <small>{{usuario.birthDate|date }}</small>
+                    <br>
+                    {{usuario.address.street}}, {{usuario.address.city}},
+                    {{usuario.address.postalcode}}, {{usuario.address.country}}
+                </td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <button type="button" class="btn btn-info btn-sm"
+                            [routerLink]="['/usuarios/edit/'+usuario.id]">Edit</button>
+                        <button type="button" class="btn btn-danger btn-sm"
+                            (click)="borrarUsuario(usuario.id)">Delete</button>
+                    </div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

@@ -26,17 +26,6 @@ export class ListaComponent implements OnInit {
       .catch(error => console.log(error));
   }
 
-  // async ngOnInit() {
-  //   try {
-  //     this.usuarios = await this.usuariosService.getAll();
-  //     console.log(this.usuarios.users);
-
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-
   //Metodo para borrar un usuario
   async borrarUsuario(pId) {
     console.log(pId);
@@ -55,19 +44,10 @@ export class ListaComponent implements OnInit {
     }
   }
 
-
   // Funcion para recagar la pagina
   reloadPage() {
     window.location.reload();
   }
-
-
-  //funcion para editar los datos de un usuario
-  async editarUsuario(pId) {
-    this.router.navigate(['/usuarios/edit/' + pId],);
-  }
-
-
 
 
 }

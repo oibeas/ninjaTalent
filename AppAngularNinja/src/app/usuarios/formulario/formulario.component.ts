@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsuariosService } from '../../usuarios.service'; //Importo el servicio de usuarios
-import { Usuario } from '../../models/usuario.model';
 import { Router } from '@angular/router'
-
 
 import { debounceTime } from 'rxjs/operators'; //Esta libreria la importamos para que compruebe un campo despues de un tiempo determinado
 
@@ -111,8 +109,8 @@ export class FormularioComponent implements OnInit {
     // console.log(this.formularioEnviar);
 
 
+    //Guardo los datos en la base de datos
     try {
-      //Guardo los datos en la base de datos
       const response = await this.usuariosService.create(this.formularioEnviar)
       //Compruebo si se ha creado el usuario y lo redirijo a la lista de usuarios
       if (response['description']) {

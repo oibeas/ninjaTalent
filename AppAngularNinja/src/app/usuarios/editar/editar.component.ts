@@ -3,14 +3,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsuariosService } from '../../usuarios.service'; //Importo el servicio de usuarios
 import { Usuario } from '../../models/usuario.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DatePipe } from '@angular/common';
+
 
 
 @Component({
   selector: 'app-editar',
   templateUrl: './editar.component.html',
   styleUrls: ['./editar.component.css'],
-  providers: [DatePipe]
 })
 export class EditarComponent implements OnInit {
 
@@ -74,7 +73,7 @@ export class EditarComponent implements OnInit {
           Validators.required, //El campo debe rellenarse
           Validators.pattern(/^(\D)+(\w)*((\.(\w)+)?)+@(\D)+(\w)*((\.(\D)+(\w)*)+)?(\.)[a-z]{2,}$/), //Es un validador por patrones
         ]),
-        birthDate: new FormControl(this.usuario.birthDate.toString().substr(0, 10), [
+        birthDate: new FormControl(this.usuario.birthDate.toString().substr(0, 10), [ //Cojo los 10 primeros caracteres de la fecha
           Validators.required, //El campo debe rellenarse
         ]),
         street: new FormControl(this.usuario.address.street, [
@@ -105,8 +104,6 @@ export class EditarComponent implements OnInit {
   //Funcion para guardar el formulario
   async onSubmit() {
 
-
-
     //Inserto los valores del formulario con el formato valido
     this.formularioEnviar = {
       id: this.usuario.id,
@@ -125,7 +122,6 @@ export class EditarComponent implements OnInit {
 
     // console.log(this.formularioEnviar);
 
-
     try {
       //Guardo los datos en la base de datos
       const response = await this.usuariosService.edit(this.usuario.id, this.formularioEnviar)
@@ -137,9 +133,5 @@ export class EditarComponent implements OnInit {
       console.log(error.error.description);
       window.alert("Usuario no modificado")
     }
-
-
   }
-
-
 }

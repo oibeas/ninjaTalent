@@ -6,7 +6,7 @@
     display: none;
 }
 
-@media (max-width: 401px) {
+@media (max-width: 768px) {
     .escritorio {
         display: none;
     }

@@ -7,12 +7,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListaComponent } from './usuarios/lista/lista.component';
 import { FormularioComponent } from './usuarios/formulario/formulario.component';
+import { EditarComponent } from './usuarios/editar/editar.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaComponent,
-    FormularioComponent
+    FormularioComponent,
+    EditarComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

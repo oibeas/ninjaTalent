@@ -1,0 +1,14 @@
+input.ng-valid.ng-touched {
+    border: 1px solid lightgreen;
+}
+
+input.ng-invalid.ng-touched {
+    border: 2px solid red;
+}
+
+/* Indica que el campo es invalido, y ademas se ha entrado en él */
+
+.error {
+    color: tomato;
+    font-size: small;
+}

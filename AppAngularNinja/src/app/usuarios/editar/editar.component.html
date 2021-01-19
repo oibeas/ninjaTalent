@@ -1,26 +1,26 @@
 <app-navbar></app-navbar>
 
-<h2 class="mt-5 mb-5">Datos nuevo Usuario</h2>
+<h2 class="mt-5 mb-5">Editar Usuario</h2>
 
 <form [formGroup]="formulario" (ngSubmit)="onSubmit()" novalidate>
     <!-- Firstname: Requerido y menor de 20 caracteres -->
     <div class="form-group">
         <label>First name</label>
-        <input type="text" class="form-control" formControlName="firstname" placeholder="First name">
+        <input type="text" class="form-control" formControlName="firstname">
         <p class="error" *ngIf="formulario.controls.firstname.errors && formulario.controls.firstname.touched">The
             firstname field is required and must be less than 20 characters</p>
     </div>
     <!-- Lastname: Requerido y menor de 50 caracteres-->
     <div class="form-group">
         <label>Last name</label>
-        <input type="text" class="form-control" formControlName="lastname" placeholder="Last name">
+        <input type="text" class="form-control" formControlName="lastname">
         <p class="error" *ngIf="formulario.controls.lastname.errors && formulario.controls.lastname.touched">The
             firstname field is required and must be less than 50 characters</p>
     </div>
     <!-- Email: Requerido y con formato email -->
     <div class="form-group">
         <label>Email</label>
-        <input type="text" class="form-control" formControlName="email" placeholder="example@email.com">
+        <input type="text" class="form-control" formControlName="email">
         <p class="error" *ngIf="formulario.controls.email.errors?.required && formulario.controls.email.touched">The
             email field is required</p>
         <p class="error" *ngIf="formulario.controls.email.errors?.pattern&& formulario.controls.email.touched">The email
@@ -38,14 +38,14 @@
     <!-- Street: Requerido y menor de 50 caracteres-->
     <div class="form-group">
         <label>Street</label>
-        <input type="text" class="form-control" formControlName="street" placeholder="Plaza de España, 5">
+        <input type="text" class="form-control" formControlName="street">
         <p class="error" *ngIf="formulario.controls.street.errors?.required && formulario.controls.street.touched">
             The street field is required</p>
     </div>
     <!-- City: Requerido y menor de 20 caracteres -->
     <div class="form-group">
         <label>City</label>
-        <input type="text" class="form-control" formControlName="city" placeholder="Madrid">
+        <input type="text" class="form-control" formControlName="city">
         <p class="error" *ngIf="formulario.controls.city.errors?.required && formulario.controls.city.touched">
             The city field is required</p>
     </div>
@@ -78,7 +78,7 @@
     <!-- Postalcode: Requerido, numerico y menor de 5 caracteres -->
     <div class="form-group">
         <label>Postalcode</label>
-        <input type="text" class="form-control" formControlName="postalcode" placeholder="00000">
+        <input type="text" class="form-control" formControlName="postalcode">
         <p class="error"
             *ngIf="formulario.controls.postalcode.errors?.required && formulario.controls.postalcode.touched">The
             postalcode field is required</p>

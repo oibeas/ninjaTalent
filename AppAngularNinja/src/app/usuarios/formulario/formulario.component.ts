@@ -4,6 +4,7 @@ import { UsuariosService } from '../../usuarios.service'; //Importo el servicio 
 import { Usuario } from '../../models/usuario.model';
 import { Router } from '@angular/router'
 
+
 import { debounceTime } from 'rxjs/operators'; //Esta libreria la importamos para que compruebe un campo despues de un tiempo determinado
 
 @Component({
@@ -75,11 +76,12 @@ export class FormularioComponent implements OnInit {
   ngOnInit(): void {
     const controlNombre = this.formulario.controls.firstname;
     controlNombre.valueChanges.pipe(debounceTime(700)).subscribe(value => { //retrasamos la comprobacion 700ms de la subscripcion, para que no esté comprobando constantemente al servidor.
-      console.log(value);
+      // console.log(value);
     });
   }
 
 
+  //Funcion para guardar el formulario
   async onSubmit() {
 
     try {

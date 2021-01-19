@@ -2,6 +2,7 @@ ninjaTalent
 ============
 
 ### Restful Front-end on Angular
+[/AppAngularNinja](https://github.com/oibeas/ninjaTalent/tree/master/AppAngularNinja)
 
 #### Firebase domain
 
@@ -17,6 +18,7 @@ ninjaTalent
 
 
 ### RESTful Back-end based on Node.js and MongoDB
+[/AppUsers](https://github.com/oibeas/ninjaTalent/tree/master/AppUsers)
 
 
 #### Heroku domain

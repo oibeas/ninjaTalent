@@ -63,11 +63,13 @@ export class EditarComponent implements OnInit {
       this.formulario = new FormGroup({
         firstname: new FormControl(this.usuario.firstname, [
           Validators.required, //El campo debe rellenarse
-          Validators.maxLength(20)//El campo no puede tener mas de 20 caracteres
+          Validators.maxLength(20), //El campo no puede tener mas de 20 caracteres
+          this.espaciosBlancos,  //Validador personalizado para ver si contiene espacios en blanco
         ]),
         lastname: new FormControl(this.usuario.lastname, [
           Validators.required, //El campo debe rellenarse
-          Validators.maxLength(50)//El campo no puede tener mas de 50 caracteres
+          Validators.maxLength(50), //El campo no puede tener mas de 50 caracteres
+          this.espaciosBlancos,  //Validador personalizado para ver si contiene espacios en blanco
         ]),
         email: new FormControl(this.usuario.email, [
           Validators.required, //El campo debe rellenarse
@@ -78,11 +80,13 @@ export class EditarComponent implements OnInit {
         ]),
         street: new FormControl(this.usuario.address.street, [
           Validators.required, //El campo debe rellenarse
-          Validators.maxLength(50)//El campo no puede tener mas de 50 caracteres
+          Validators.maxLength(50), //El campo no puede tener mas de 50 caracteres
+          this.espaciosBlancos,  //Validador personalizado para ver si contiene espacios en blanco
         ]),
         city: new FormControl(this.usuario.address.city, [
           Validators.required, //El campo debe rellenarse
-          Validators.maxLength(20)//El campo no puede tener mas de 20 caracteres
+          Validators.maxLength(20), //El campo no puede tener mas de 20 caracteres
+          this.espaciosBlancos,  //Validador personalizado para ver si contiene espacios en blanco
         ]),
         country: new FormControl(this.usuario.address.country, [
           Validators.required, //El campo debe rellenarse
@@ -107,14 +111,14 @@ export class EditarComponent implements OnInit {
     //Inserto los valores del formulario con el formato valido
     this.formularioEnviar = {
       id: this.usuario.id,
-      firstname: this.formulario.value.firstname,
-      lastname: this.formulario.value.lastname,
-      email: this.formulario.value.email,
+      firstname: this.formulario.value.firstname.trim(),
+      lastname: this.formulario.value.lastname.trim(),
+      email: this.formulario.value.email.replace(/\s+/g, ''),
       birthDate: this.formulario.value.birthDate,
       address: {
         id: this.usuario.id,
-        street: this.formulario.value.street,
-        city: this.formulario.value.city,
+        street: this.formulario.value.street.trim(),
+        city: this.formulario.value.city.trim(),
         country: this.formulario.value.country,
         postalcode: this.formulario.value.postalcode
       }
@@ -134,4 +138,16 @@ export class EditarComponent implements OnInit {
       window.alert("Usuario no modificado")
     }
   }
+
+
+
+  // Validador de espacios en blacno
+  espaciosBlancos(control) {
+    if (control.value.trim().length == 0) {
+      return { espaciosBlancos: true }
+    } else {
+      return null;
+    }
+  }
+
 }

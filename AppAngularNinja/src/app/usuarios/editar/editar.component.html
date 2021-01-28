@@ -42,14 +42,14 @@
         <div class="form-group">
             <label>Street</label>
             <input type="text" class="form-control" formControlName="street">
-            <p class="error" *ngIf="formulario.controls.street.errors?.required && formulario.controls.street.touched">
+            <p class="error" *ngIf="formulario.controls.street.errors && formulario.controls.street.touched">
                 The street field is required</p>
         </div>
         <!-- City: Requerido y menor de 20 caracteres -->
         <div class="form-group">
             <label>City</label>
             <input type="text" class="form-control" formControlName="city">
-            <p class="error" *ngIf="formulario.controls.city.errors?.required && formulario.controls.city.touched">
+            <p class="error" *ngIf="formulario.controls.city.errors && formulario.controls.city.touched">
                 The city field is required</p>
         </div>
         <!-- COUNTRY: Requerido -->

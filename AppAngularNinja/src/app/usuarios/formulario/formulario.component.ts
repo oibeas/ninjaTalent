@@ -24,11 +24,13 @@ export class FormularioComponent implements OnInit {
     this.formulario = new FormGroup({
       firstname: new FormControl('', [
         Validators.required, //El campo debe rellenarse
-        Validators.maxLength(20)//El campo no puede tener mas de 20 caracteres
+        Validators.maxLength(20), //El campo no puede tener mas de 20 caracteres
+        this.espaciosBlancos,  //Validador personalizado para ver si contiene espacios en blanco
       ]),
       lastname: new FormControl('', [
         Validators.required, //El campo debe rellenarse
-        Validators.maxLength(50)//El campo no puede tener mas de 50 caracteres
+        Validators.maxLength(50), //El campo no puede tener mas de 50 caracteres
+        this.espaciosBlancos,  //Validador personalizado para ver si contiene espacios en blanco
       ]),
       email: new FormControl('', [
         Validators.required, //El campo debe rellenarse
@@ -39,11 +41,13 @@ export class FormularioComponent implements OnInit {
       ]),
       street: new FormControl('', [
         Validators.required, //El campo debe rellenarse
-        Validators.maxLength(50)//El campo no puede tener mas de 50 caracteres
+        Validators.maxLength(50), //El campo no puede tener mas de 50 caracteres
+        this.espaciosBlancos,  //Validador personalizado para ver si contiene espacios en blanco
       ]),
       city: new FormControl('', [
         Validators.required, //El campo debe rellenarse
-        Validators.maxLength(20)//El campo no puede tener mas de 20 caracteres
+        Validators.maxLength(20), //El campo no puede tener mas de 20 caracteres
+        this.espaciosBlancos,  //Validador personalizado para ver si contiene espacios en blanco
       ]),
       country: new FormControl('', [
         Validators.required, //El campo debe rellenarse
@@ -85,7 +89,11 @@ export class FormularioComponent implements OnInit {
     try {
       //Obtengo el ultimo id en la base de datos
       this.usuarios = await this.usuariosService.getAll();
-      this.ultimoId = this.usuarios.users[this.usuarios.users.length - 1];
+      console.log(this.usuarios.users.length);
+
+      // Comprobamos si la base de usuarios esta vacia
+      this.usuarios.users.length > 0 ? this.ultimoId = this.usuarios.users[this.usuarios.users.length - 1] : this.ultimoId = { id: 0 };
+
     } catch (error) {
       console.log(error);
     }
@@ -93,20 +101,20 @@ export class FormularioComponent implements OnInit {
     //Inserto los valores del formulario mas el id recuperado +1
     this.formularioEnviar = {
       id: this.ultimoId.id + 1,
-      firstname: this.formulario.value.firstname,
-      lastname: this.formulario.value.lastname,
-      email: this.formulario.value.email,
+      firstname: this.formulario.value.firstname.trim(),
+      lastname: this.formulario.value.lastname.trim(),
+      email: this.formulario.value.email.replace(/\s+/g, ''),
       birthDate: this.formulario.value.birthDate,
       address: {
         id: this.ultimoId.id + 1,
-        street: this.formulario.value.street,
-        city: this.formulario.value.city,
+        street: this.formulario.value.street.trim(),
+        city: this.formulario.value.city.trim(),
         country: this.formulario.value.country,
         postalcode: this.formulario.value.postalcode
       }
     };
 
-    // console.log(this.formularioEnviar);
+    console.log(this.formularioEnviar);
 
 
     //Guardo los datos en la base de datos
@@ -123,5 +131,16 @@ export class FormularioComponent implements OnInit {
   }
 
 
+  // Validador de espacios en blacno
+  espaciosBlancos(control) {
+    // console.log(control.value.trim().length);
+    // console.log(control.value.trim());
+
+    if (control.value.trim().length == 0) {
+      return { espaciosBlancos: true }
+    } else {
+      return null;
+    }
+  }
 
 }

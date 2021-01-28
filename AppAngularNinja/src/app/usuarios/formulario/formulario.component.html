@@ -8,7 +8,8 @@
         <div class="form-group">
             <label>First name</label>
             <input type="text" class="form-control" formControlName="firstname" placeholder="First name">
-            <p class="error" *ngIf="formulario.controls.firstname.errors && formulario.controls.firstname.touched">The
+            <p class="error" *ngIf="formulario.controls.firstname.errors && formulario.controls.firstname.touched">
+                The
                 firstname field is required and must be less than 20 characters</p>
         </div>
         <!-- Lastname: Requerido y menor de 50 caracteres-->
@@ -41,14 +42,15 @@
         <div class="form-group">
             <label>Street</label>
             <input type="text" class="form-control" formControlName="street" placeholder="Plaza de España, 5">
-            <p class="error" *ngIf="formulario.controls.street.errors?.required && formulario.controls.street.touched">
+            <p class="error" *ngIf="formulario.controls.street.errors && formulario.controls.street.touched">
                 The street field is required</p>
+
         </div>
         <!-- City: Requerido y menor de 20 caracteres -->
         <div class="form-group">
             <label>City</label>
             <input type="text" class="form-control" formControlName="city" placeholder="Madrid">
-            <p class="error" *ngIf="formulario.controls.city.errors?.required && formulario.controls.city.touched">
+            <p class="error" *ngIf="formulario.controls.city.errors && formulario.controls.city.touched">
                 The city field is required</p>
         </div>
         <!-- COUNTRY: Requerido -->

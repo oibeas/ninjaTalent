@@ -1,14 +1,15 @@
 ninjaTalent
 ============
 
-### Restful frontend on Angular
+### Restful Front-end on Angular
+[/AppAngularNinja](https://github.com/oibeas/ninjaTalent/tree/master/AppAngularNinja)
 
 #### Firebase domain
 
 > https://appninja-668df.web.app
 
 
-#### Aplicacion desarrollada para generarlos servicios (RESTful) y conectar con el backend.
+#### Aplicacion desarrollada para generar los servicios (RESTful) y conectar con el Back-end.
 #### Interfaz desarrollada en Angular que permite, listar, crear, editar y eliminar usuarios. Dispone de una pagina principal donde se listan los usuarios y un formulario para crear nuevos usuarios o editarlos.
 
 
@@ -16,7 +17,8 @@ ninjaTalent
 
 
 
-### RESTful backend based on Node.js and MongoDB
+### RESTful Back-end based on Node.js and MongoDB
+[/AppUsers](https://github.com/oibeas/ninjaTalent/tree/master/AppUsers)
 
 
 #### Heroku domain
